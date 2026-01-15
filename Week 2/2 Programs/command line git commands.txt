@@ -139,24 +139,50 @@ git remote rm remote-name
 
 ## =================== BRANCHING ==============================
 
+# Terminology
+Remote branch: Branch that exists on remote server, like the main branch
+Local branch: Copy of a branch you have on your local machine
+Upstream branch: In the context of a tracking branch, the "upstream" is the remote branch that the local branch tracks. 
+Tracing branch: In the context of a tracking branch, the "upstream" is the remote branch that the local branch tracks. 
 
 # Check branches in repo (All of your changes must be committed)
 git branch
 
+# Lists local branches and shows their remote-tracking branches
+git branch -vv
+
 # See differences between two branches
 git diff branch-1..branch-2
 
-# Change branches
-git checkout 
+# Change branch
+git switch branch1
+
+# Change branches (older way of switching, has other capabilities you can add one)
+git checkout branch1
+
+# Create a New Branch and switch to it
+git switch -c new_branch
 
 # Create branch and switch to it
 git checkout -b branch-name
+
+# If a local branch already exists and needs to be configured to track a remote branch
+git branch --set-upstream-to=origin/<remote-branch-name> <local-branch-name>
+
+# Create new branch, setup to track remote branch
+git checkout -b <local-branch-name> origin/<remote-branch-name>
+
+# rename branch
+git branch -m old_name new_name
 
 # Merge branches: Source is the parent child, destination is the parent
 git merge source destination
 
 # See the merge conflict (must be run after trying to merge)
 git status
+
+# delete (#Use -D if you get message about unmerged changes)
+git branch -d branch
 
 
 
