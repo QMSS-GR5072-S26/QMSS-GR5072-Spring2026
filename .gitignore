@@ -1,6 +1,6 @@
 # General application docs 
 *.docx
-*.pptx
+#*.pptx
 *.tmp
 .DS_Store # Maybe mac to windows conversion ?
 
